@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qa-nginx-app
+  labels:
+    env: qa
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+      env: qa
+  template:
+    metadata:
+      labels:
+        app: nginx
+        env: qa
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80

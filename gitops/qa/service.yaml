@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: qa-nginx-service
+  labels:
+    env: qa
+spec:
+  selector:
+    app: nginx
+    env: qa
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
